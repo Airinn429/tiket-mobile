@@ -1,0 +1,332 @@
+// Background Halaman
+.light-bg {
+  --background: #eef4fa;
+}
+
+// Custom Toolbar Atas
+.custom-toolbar {
+  --background: #ffffff;
+  --color: #1e293b;
+  border-bottom: 1px solid #edf2f7;
+  
+  .header-title {
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+// Hero Section (Gambar Konser)
+.hero-section {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  position: relative;
+
+  .hero-content {
+    width: 100%;
+
+    .rating-badge {
+      --background: #ff007f;
+      --color: #ffffff;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .event-title {
+      color: #1e293b;
+      font-size: 24px;
+      font-weight: 800;
+      margin: 12px 0 6px 0;
+    }
+
+    .event-meta {
+      display: flex;
+      gap: 16px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 500;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        ion-icon {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+// Konten Body & Blok Section
+.content-body {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 100px; // Jarak aman agar konten terbawah tidak tertutup footer melayang
+}
+
+.section-block {
+  margin-bottom: 24px;
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 10px 0;
+  }
+
+  .event-desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+  }
+}
+
+// Flex Header untuk Kategori Tiket
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  .options-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #3b82f6;
+    letter-spacing: 0.5px;
+  }
+}
+
+// ================= STYLING KARTU TIKET =================
+.ticket-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+
+  &.active-card {
+    border-color: #0052cc;
+    background: #f8fafc;
+  }
+
+  .ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 14px;
+    margin-bottom: 12px;
+  }
+
+  .ticket-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .ticket-type {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+
+      &.active-text {
+        color: #0052cc;
+      }
+    }
+
+    .ticket-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.2;
+      margin: 0;
+    }
+  }
+
+  .ticket-price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .ticket-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1e293b;
+      text-align: right;
+      line-height: 1.2;
+      margin: 0;
+
+      &.active-text {
+        color: #0052cc;
+      }
+    }
+
+    .per-person {
+      font-size: 9px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+// Tombol Counter Plus Minus ala Goers
+.counter-box {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 2px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 10;
+
+  .btn-counter {
+    --padding-start: 4px;
+    --padding-end: 4px;
+    margin: 0;
+    height: 26px;
+    width: 26px;
+    --color: #0052cc;
+    font-weight: bold;
+    position: relative; // PERBAIKAN: Memperbaiki typo kata 'position'
+    z-index: 20;
+  }
+
+  ion-icon {
+    pointer-events: none;
+  }
+
+  .qty-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 6px;
+    min-width: 14px;
+    text-align: center;
+  }
+}
+
+// Fitur/Benefit Tiket
+.ticket-features {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    ion-icon {
+      color: #3b82f6;
+      font-size: 16px;
+    }
+    .gray-icon {
+      color: #94a3b8;
+    }
+  }
+}
+
+// Section Lokasi / Map
+.map-container {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  .map-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-map {
+      background: #ffffff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 13px;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+  }
+}
+
+// ================= PERBAIKAN UTAMA: DUDUKAN ION-FOOTER =================
+ion-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 999;
+}
+
+.footer-container-goers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 16px 24px;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.06);
+  border-top: 1px solid #edf2f7;
+  max-width: 600px; 
+  margin: 0 auto;
+
+  .summary-text-box {
+    .total-qty-label {
+      margin: 0 0 2px 0;
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .total-price-label {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      color: #0052cc;
+    }
+  }
+
+  .btn-checkout-goers {
+    --background: #0052cc;
+    --background-activated: #0041a3;
+    --border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    width: 130px;
+    height: 42px;
+    margin: 0;
+  }
+}

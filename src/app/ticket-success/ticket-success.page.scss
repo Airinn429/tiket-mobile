@@ -1,0 +1,178 @@
+.ticket-bg {
+  --background: #f7f9fc;
+}
+
+.header-title {
+  font-weight: 700;
+  color: #4a54f1;
+}
+
+.ticket-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+// Success Status Header
+.success-header {
+  text-align: center;
+  margin: 10px 0 25px 0;
+
+  .success-icon-box {
+    color: #c05621; // Warna oren kecoklatan mockup asli
+    font-size: 3.2rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background-image: linear-gradient(135deg, #d69e2e, #b7791f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3 { font-weight: 800; color: #1a202c; margin: 0; font-size: 1.35rem; }
+  p { font-size: 0.85rem; color: #718096; margin: 6px 0 0 0; font-weight: 500; }
+}
+
+// Main Ticket Card Box
+.main-ticket-card {
+  width: 100%;
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(74, 84, 241, 0.06);
+  overflow: hidden;
+}
+
+// Top Banner Gradasi Ungu
+.ticket-banner {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  padding: 24px;
+  color: #ffffff;
+
+  .category-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  h2 { font-weight: 800; font-size: 1.55rem; margin: 14px 0 8px 0; line-height: 1.25; }
+  .date { margin: 0; font-size: 0.82rem; color: #e9d5ff; display: flex; align-items: center; gap: 5px; }
+}
+
+// Lekukan Tiket Kanan & Kiri (Notch Styling)
+.notch-container {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  height: 20px;
+  position: relative;
+
+  .notch {
+    width: 20px;
+    height: 20px;
+    background: #f7f9fc; // Menyamakan warna background luar layar
+    border-radius: 50%;
+    position: absolute;
+    
+    &.left { left: -10px; }
+    &.right { right: -10px; }
+  }
+
+  .dashed-line {
+    flex: 1;
+    border-bottom: 2px dashed #e2e8f0;
+    margin: 0 15px;
+  }
+}
+
+// Body Detail Tiket
+.ticket-body {
+  padding: 20px 24px;
+  background: #ffffff;
+
+  .info-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    
+    &.style-gap { margin-bottom: 20px; }
+  }
+
+  .info-block {
+    flex: 1;
+    .meta-label { font-size: 0.72rem; font-weight: 600; color: #a0aec0; letter-spacing: 0.5px; }
+    .meta-value { font-size: 1rem; font-weight: 700; color: #2d3748; margin: 4px 0 0 0; }
+  }
+
+  .ticket-divider-dot {
+    height: 1px;
+    background: #edf2f7;
+    margin: 20px 0;
+  }
+}
+
+// Bagian QR Masuk Konser
+.entry-qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+
+  .qr-display-box {
+    background: #ffffff;
+    padding: 12px;
+    border: 1px dashed #cbd5e0;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    
+    img { width: 130px; height: 130px; display: block; }
+  }
+
+  .scan-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #718096;
+    letter-spacing: 1.5px;
+    margin-top: 12px;
+  }
+}
+
+// Action Buttons
+.action-buttons-group {
+  width: 100%;
+  max-width: 340px;
+  margin-top: 25px;
+
+  .download-btn {
+    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --background-activated: #533483;
+    --border-radius: 14px;
+    font-weight: 700;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .calendar-btn {
+    --border-radius: 14px;
+    --color: #5260ff;
+    --border-color: #5260ff;
+    font-weight: 700;
+    height: 48px;
+  }
+}
+
+.bottom-disclaimer {
+  font-size: 0.78rem;
+  color: #718096;
+  text-align: center;
+  max-width: 290px;
+  line-height: 1.5;
+  margin-top: 20px;
+}

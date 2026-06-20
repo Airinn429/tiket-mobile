@@ -1,0 +1,304 @@
+.grey-bg {
+  --background: #f7f9fc;
+}
+
+.header-title {
+  font-weight: 700;
+  color: #4a54f1;
+  font-size: 1.15rem;
+}
+
+// Stepper Progress
+.stepper-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px 25px 15px;
+  
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #a0aec0;
+    width: 60px;
+
+    span { margin-top: 6px; }
+    &.active { color: #5260ff; font-weight: 600; }
+    &.active-current { color: #5260ff; font-weight: 600; }
+  }
+
+  .step-circle {
+    color: #2ed573;
+    font-size: 1.6rem;
+    height: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  .step-circle-dot {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #5260ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .inner-dot {
+      width: 10px;
+      height: 10px;
+      background: #5260ff;
+      border-radius: 50%;
+    }
+  }
+
+  .step-circle-empty {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #cbd5e0;
+    border-radius: 50%;
+  }
+
+  .step-line {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    margin-bottom: 18px;
+    &.active { background: #5260ff; }
+  }
+}
+
+.section-title {
+  font-weight: 700;
+  color: #1a202c;
+  margin: 15px 0 12px 2px;
+  font-size: 1.05rem;
+}
+
+// Summary Card
+.summary-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+
+  .event-info {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+
+    .event-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .live-badge {
+      font-size: 0.65rem;
+      background: rgba(82, 96, 255, 0.1);
+      color: #5260ff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    h4 {
+      margin: 4px 0 6px 0;
+      font-weight: 700;
+      color: #2d3748;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: #718096;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      ion-icon { font-size: 0.9rem; }
+    }
+  }
+
+  .price-divider {
+    height: 1px;
+    background: #f1f5f9;
+    margin: 16px 0;
+  }
+
+  .billing-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    
+    .label { color: #718096; }
+    .value { color: #2d3748; font-weight: 600; }
+    
+    &.discount {
+      .label, .value { color: #e53e3e; font-weight: 600; }
+    }
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+// Payment Method
+.payment-method-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  .change-link {
+    color: #5260ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+.qris-card {
+  background: #ffffff;
+  border: 1.5px solid #5260ff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 30px;
+
+  .qris-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .qris-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .qr-icon-box {
+      background: #eef0ff;
+      color: #5260ff;
+      padding: 8px;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      display: flex;
+    }
+
+    h6 { margin: 0; font-weight: 700; color: #2d3748; font-size: 0.9rem;}
+    p { margin: 2px 0 0 0; font-size: 0.78rem; color: #718096; }
+  }
+
+  .qris-radio-active {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #5260ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .inner-radio { width: 10px; height: 10px; background: #5260ff; border-radius: 50%; }
+  }
+}
+
+// QR Scan Box
+.qr-scan-wrapper {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .scan-instruction {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #718096;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0;
+  }
+
+  .qr-box {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .qris-image {
+      width: 170px;
+      height: 170px;
+    }
+
+    .qr-center-logo {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      background: #0056a3; // Biru khas QRIS bank center
+      color: #ffffff;
+      border: 3px solid #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+  }
+
+  .qr-footer-text {
+    font-size: 0.78rem;
+    color: #718096;
+    margin: 15px 0 0 0;
+    line-height: 1.4;
+    padding: 0 15px;
+  }
+}
+
+// Bottom Bar
+.footer-payment-bar {
+  background: #ffffff;
+  padding: 16px;
+  border-top: 1px solid #edf2f7;
+  display: flex;
+  flex-direction: column;
+
+  .total-pay-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .total-label { font-size: 0.78rem; color: #718096; font-weight: 500; }
+  .total-amount { font-size: 1.4rem; font-weight: 800; color: #4a54f1; margin: 0; }
+
+  .secure-badge-container {
+    text-align: right;
+    margin-top: -2px;
+    margin-bottom: 12px;
+  }
+
+  .secure-badge {
+    font-size: 0.62rem;
+    background: #b7791f;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    background-image: linear-gradient(135deg, #b83280, #805ad5);
+  }
+
+  .pay-button {
+    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --background-activated: #533483;
+    --border-radius: 14px;
+    font-weight: 700;
+    height: 48px;
+    margin: 0;
+  }
+}

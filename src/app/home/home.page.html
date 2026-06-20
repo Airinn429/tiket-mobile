@@ -1,20 +1,197 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar style="--background: #3b82f6; --color: #ffffff;">
+      <ion-title style="font-weight: 700;">Menu T!CKET</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list lines="none" style="padding-top: 10px;">
+      <ion-item button><ion-icon name="heart-outline" slot="start" style="color: #3b82f6;"></ion-icon> <ion-label>Wishlist Event</ion-label></ion-item>
+      <ion-item button><ion-icon name="gift-outline" slot="start" style="color: #3b82f6;"></ion-icon> <ion-label>Promo & Voucher</ion-label></ion-item>
+      <ion-item button><ion-icon name="calendar-outline" slot="start" style="color: #3b82f6;"></ion-icon> <ion-label>Kalender Konser</ion-label></ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+<div class="ion-page" id="main-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar class="custom-toolbar">
+      <ion-buttons slot="start">
+        <ion-menu-button style="--color: #3b82f6;"></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title class="ion-text-center">
+        <div class="logo-container">
+          <img src="assets/icon/Logo.png" alt="Logo" class="logo-img" /> 
+          <span class="logo-text">T!CKET</span>
+        </div>
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content class="light-bg">
+    <div class="main-container">
+      
+      <div class="search-section">
+        <ion-searchbar placeholder="Cari event menarik yuk..." class="custom-searchbar"></ion-searchbar>
+      </div>
+
+      <div class="category-scroll">
+        <div class="category-item">
+          <div class="category-icon blue-circle"><ion-icon name="book-outline"></ion-icon></div>
+          <ion-label>Edukasi</ion-label>
+        </div>
+        <div class="category-item">
+          <div class="category-icon blue-circle"><ion-icon name="game-controller-outline"></ion-icon></div>
+          <ion-label>Hiburan</ion-label>
+        </div>
+        <div class="category-item">
+          <div class="category-icon blue-circle"><ion-icon name="football-outline"></ion-icon></div>
+          <ion-label>Olahraga</ion-label>
+        </div>
+        <div class="category-item">
+          <div class="category-icon blue-circle"><ion-icon name="color-palette-outline"></ion-icon></div>
+          <ion-label>Kesenian</ion-label>
+        </div>
+      </div>
+
+      <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://www.lazone.id/storage/news/Juli2023/26Juli/SEO/KonserCover.jpg');">
+        <span class="badge-populer">Populer</span>
+        <div class="hero-info">
+          <h2>Comedy Night Jakarta</h2>
+          <p>Teater Kecil, Jakarta | 30 Jun 2026</p>
+        </div>
+      </div>
+
+      <div class="section-title ion-text-center">
+        <h3>Pilihan Terbaik untuk anda</h3>
+      </div>
+
+      <div class="filter-scroll">
+        <div class="custom-chip active"><ion-icon name="sparkles-outline"></ion-icon> Sorotan</div>
+        <div class="custom-chip"><ion-icon name="flame-outline"></ion-icon> Populer</div>
+        <div class="custom-chip"><ion-icon name="calendar-outline"></ion-icon> Terbaru</div>
+      </div>
+
+      <div class="section-header">
+        <span class="title-left">Event Rekomendasi</span>
+        <span class="title-right">Lihat Semua</span>
+      </div>
+
+      <ion-grid class="event-grid">
+        <ion-row>
+          <ion-col size="12" size-md="6" size-lg="3">
+            <ion-card class="event-card">
+              <div class="card-img-container">
+                <img src="https://dewatiket.id/blog/wp-content/uploads/2024/01/Jadwal-Konser-di-Surabaya.jpg.webp" alt="Porsche Fest" />
+                <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+              </div>
+              <ion-card-content>
+                <h4>Porsche Museum fest 2.8</h4>
+                <p class="event-date"><ion-icon name="calendar-outline"></ion-icon> 13 Feb 2026</p>
+                <div class="card-footer">
+                  <div class="price-container">
+                    <span class="label-price">Mulai dari</span>
+                    <span class="price-value">Rp 300.000</span>
+                  </div>
+                  <ion-button size="small" class="btn-beli" (click)="goToDetail({ title: 'Porsche Museum fest 2.8', date: '13 Feb 2026', location: 'Stuttgart Arena', vipPrice: 1200000, regPrice: 300000 })">Beli</ion-button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-md="6" size-lg="3">
+            <ion-card class="event-card">
+              <div class="card-img-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Classical_spectacular10.jpg/1280px-Classical_spectacular10.jpg" alt="Under Wonder" />
+                <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+              </div>
+              <ion-card-content>
+                <h4>Under Wondering</h4>
+                <p class="event-date"><ion-icon name="calendar-outline"></ion-icon> 15 Des 2026</p>
+                <div class="card-footer">
+                  <div class="price-container">
+                    <span class="label-price">Mulai dari</span>
+                    <span class="price-value">Rp 150.000</span>
+                  </div>
+                  <ion-button size="small" class="btn-beli" (click)="goToDetail({ title: 'Under Wondering', date: '15 Des 2026', location: 'Hall Convex', vipPrice: 800000, regPrice: 150000 })">Beli</ion-button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-md="6" size-lg="3">
+            <ion-card class="event-card">
+              <div class="card-img-container">
+                <img src="https://awsimages.detik.net.id/community/media/visual/2023/08/25/the-sounds-project-2.jpeg?w=700&q=90" alt="The Sounds Project" />
+                <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+              </div>
+              <ion-card-content>
+                <h4>The Sounds Project Vol. 7</h4>
+                <p class="event-date"><ion-icon name="calendar-outline"></ion-icon> 09 Ags 2026</p>
+                <div class="card-footer">
+                  <div class="price-container">
+                    <span class="label-price">Mulai dari</span>
+                    <span class="price-value">Rp 250.000</span>
+                  </div>
+                  <ion-button size="small" class="btn-beli" (click)="goToDetail({ title: 'The Sounds Project Vol. 7', date: '09 Ags 2026', location: 'Eco Park Ancol', vipPrice: 1000000, regPrice: 250000 })">Beli</ion-button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-md="6" size-lg="3">
+            <ion-card class="event-card">
+              <div class="card-img-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMxLmPiBK1WDmnFkE-TNBZVepHvj6UYz6CXg&s" alt="Symphony Night" />
+                <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+              </div>
+              <ion-card-content>
+                <h4>Symphony of The Night</h4>
+                <p class="event-date"><ion-icon name="calendar-outline"></ion-icon> 22 Sep 2026</p>
+                <div class="card-footer">
+                  <div class="price-container">
+                    <span class="label-price">Mulai dari</span>
+                    <span class="price-value">Rp 450.000</span>
+                  </div>
+                  <ion-button size="small" class="btn-beli" (click)="goToDetail({ title: 'Symphony of The Night', date: '22 Sep 2026', location: 'Jakarta Theater', vipPrice: 1500000, regPrice: 450000 })">Beli</ion-button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>
+
+  <ion-footer class="ion-no-border">
+    <ion-tab-bar slot="bottom" class="custom-tabbar">
+      <ion-tab-button tab="home" routerLink="/home" routerDirection="root" class="tab-selected">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Beranda</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="jelajah" routerLink="/jelajah" routerDirection="root">
+        <ion-icon name="compass-outline"></ion-icon>
+        <ion-label>Jelajah</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="pesanan" routerLink="/detail" routerDirection="root">
+        <ion-icon name="ticket-outline"></ion-icon> 
+        <ion-label>Pesanan</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="profil" routerLink="/profile" routerDirection="root">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Profil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-footer>
+
+</div>

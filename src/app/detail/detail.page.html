@@ -1,0 +1,129 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center header-title">Checkout Tiket</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="light-bg">
+  <div class="hero-section" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(238, 244, 250, 1) 100%), url('https://images.unsplash.com/photo-1540039155732-68ee23e15b51?q=80&w=1000&auto=format&fit=crop');">
+    <div class="hero-content">
+      <ion-badge class="rating-badge">
+        <ion-icon name="star"></ion-icon> RATING TERATAS
+      </ion-badge>
+      
+      <h1 class="event-title">{{ eventData.name }}</h1>
+      
+      <div class="event-meta">
+        <span><ion-icon name="calendar-outline"></ion-icon> {{ eventData.date }}</span>
+        <span><ion-icon name="location-outline"></ion-icon> {{ eventData.location }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-body">
+    <div class="section-block">
+      <h3 class="section-title">Tentang Event</h3>
+      <p class="event-desc">
+        Rasakan getaran musim panas terbaik di {{ eventData.location }}. Menampilkan deretan artis internasional kelas dunia, instalasi seni yang imersif, dan area kuliner gourmet. Bergabunglah bersama kami untuk malam penuh ritme, cahaya, dan kenangan tak unutuk dilupakan di bawah bintang-bintang.
+      </p>
+    </div>
+
+    <div class="section-block">
+      <div class="header-flex">
+        <h3 class="section-title">Kategori Tiket</h3>
+        <span class="options-label">2 PILIHAN</span>
+      </div>
+
+      <div class="ticket-card" [class.active-card]="jumlahVip > 0">
+        <div class="ticket-header">
+          <div class="ticket-info">
+            <span class="ticket-type" [class.active-text]="jumlahVip > 0">AKSES PREMIUM</span>
+            <h2 class="ticket-name">Tiket<br>VIP</h2>
+          </div>
+          
+          <div class="ticket-price-container">
+            <h2 class="ticket-price" [class.active-text]="jumlahVip > 0">Rp<br>{{ (hargaVip/1000) }}k</h2>
+            <span class="per-person">PER ORANG</span>
+            
+            <div class="counter-box">
+              <ion-button fill="clear" class="btn-counter" (click)="ubahJumlah('vip', 'kurang')">
+                <ion-icon name="remove-outline"></ion-icon>
+              </ion-button>
+              <span class="qty-text">{{ jumlahVip }}</span>
+              <ion-button fill="clear" class="btn-counter" (click)="ubahJumlah('vip', 'tambah')">
+                <ion-icon name="add-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-features">
+          <p><ion-icon name="checkmark-circle-outline"></ion-icon> Akses baris depan</p>
+          <p><ion-icon name="checkmark-circle-outline"></ion-icon> Akses lounge & minuman</p>
+        </div>
+      </div>
+
+      <div class="ticket-card" [class.active-card]="jumlahReguler > 0">
+        <div class="ticket-header">
+          <div class="ticket-info">
+            <span class="ticket-type" [class.active-text]="jumlahReguler > 0">STANDAR</span>
+            <h2 class="ticket-name">Tiket<br>Reguler</h2>
+          </div>
+          
+          <div class="ticket-price-container">
+            <h2 class="ticket-price" [class.active-text]="jumlahReguler > 0">Rp<br>{{ (hargaReguler/1000) }}k</h2>
+            <span class="per-person">PER ORANG</span>
+            
+            <div class="counter-box">
+              <ion-button fill="clear" class="btn-counter" (click)="ubahJumlah('reguler', 'kurang')">
+                <ion-icon name="remove-outline"></ion-icon>
+              </ion-button>
+              <span class="qty-text">{{ jumlahReguler }}</span>
+              <ion-button fill="clear" class="btn-counter" (click)="ubahJumlah('reguler', 'tambah')">
+                <ion-icon name="add-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-features">
+          <p><ion-icon name="checkmark-circle-outline" class="gray-icon"></ion-icon> Akses arena utama</p>
+          <p><ion-icon name="checkmark-circle-outline" class="gray-icon"></ion-icon> Area berdiri</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h3 class="section-title">Lokasi</h3>
+      <div class="map-container" style="background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop');">
+        <div class="map-overlay">
+          <button class="btn-map">
+            <ion-icon name="navigate-circle-outline"></ion-icon>
+            Lihat di Peta
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border" *ngIf="totalTiket > 0">
+  <div class="footer-container-goers">
+    <div class="summary-text-box">
+      <p class="total-qty-label">{{ totalTiket }} Tiket Terpilih</p>
+      <h3 class="total-price-label">Rp {{ totalHarga.toLocaleString('id-ID') }}</h3>
+    </div>
+    <ion-button class="btn-checkout-goers" (click)="goToCheckout()">
+      Lanjutkan
+    </ion-button>
+  </div>
+</ion-footer>

@@ -1,2 +1,15 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+// Theme variables for T!CKET app
+// Based on provided mockups: light aqua background + magenta primary
+
+:root {
+	--ion-color-primary: #d81b60; /* magenta */
+	--ion-color-primary-contrast: #fff;
+	--ion-color-secondary: #1ea7c7; /* teal/blue */
+	--ion-background-color: #e9fbfb; /* very light aqua */
+	--ion-toolbar-background: transparent;
+	--ion-font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+	background: var(--ion-background-color);
+}

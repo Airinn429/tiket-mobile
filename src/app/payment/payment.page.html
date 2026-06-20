@@ -1,0 +1,105 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/detail" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center header-title">Ticket Checkout</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding grey-bg">
+  <div class="stepper-container">
+    <div class="step-item active">
+      <div class="step-circle"><ion-icon name="checkmark-circle"></ion-icon></div>
+      <span>Details</span>
+    </div>
+    <div class="step-line active"></div>
+    <div class="step-item active-current">
+      <div class="step-circle-dot">
+        <div class="inner-dot"></div>
+      </div>
+      <span>Payment</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-circle-empty"></div>
+      <span>Ticket</span>
+    </div>
+  </div>
+
+  <h5 class="section-title">Order Summary</h5>
+  <div class="summary-card" *ngIf="ticketData">
+    <div class="event-info">
+      <img src="assets/images/concert-thumbnail.jpg" alt="Event Thumbnail" class="event-img" onerror="this.src='https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=200&auto=format&fit=crop'"/>
+      <div class="event-text">
+        <span class="live-badge">LIVE EVENT</span>
+        <h4>{{ ticketData.name }}</h4>
+        <p><ion-icon name="calendar-outline"></ion-icon> Sat, 24 Aug 2024</p>
+      </div>
+    </div>
+
+    <div class="price-divider"></div>
+
+    <div class="billing-row">
+      <span class="label">Ticket Price</span>
+      <span class="value">Rp {{ ticketData.price.toLocaleString('id-ID') }}</span>
+    </div>
+    <div class="billing-row">
+      <span class="label">Service Fee</span>
+      <span class="value">Rp {{ ticketData.fee.toLocaleString('id-ID') }}</span>
+    </div>
+    <div class="billing-row discount">
+      <span class="label">Discount</span>
+      <span class="value">-Rp {{ ticketData.discount.toLocaleString('id-ID') }}</span>
+    </div>
+  </div>
+
+  <div class="payment-method-header">
+    <h5 class="section-title">Payment Method</h5>
+    <span class="change-link">Change</span>
+  </div>
+
+  <div class="qris-card">
+    <div class="qris-header">
+      <div class="qris-title">
+        <div class="qr-icon-box">
+          <ion-icon name="qr-code-outline"></ion-icon>
+        </div>
+        <div>
+          <h6>QRIS Payment</h6>
+          <p>Instant Confirmation</p>
+        </div>
+      </div>
+      <div class="qris-radio-active">
+        <div class="inner-radio"></div>
+      </div>
+    </div>
+
+    <div class="qr-scan-wrapper">
+      <p class="scan-instruction">SCAN TO PAY</p>
+      <div class="qr-box">
+        <div class="qr-center-logo">P</div>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=MusicFestivalPaymentQRIS" alt="QRIS Code" class="qris-image" />
+      </div>
+      <p class="qr-footer-text">Save this QR code or scan it directly from your payment app.</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border" *ngIf="ticketData">
+  <div class="footer-payment-bar">
+    <div class="total-pay-box">
+      <span class="total-label">Total Payable Amount</span>
+      <h3 class="total-amount">Rp {{ ticketData.total.toLocaleString('id-ID') }}</h3>
+    </div>
+    <div class="secure-badge-container">
+      <span class="secure-badge">SECURE TRANSACTION</span>
+    </div>
+    <ion-button expand="block" class="pay-button" (click)="bayarSekarang()">Pay Now</ion-button>
+  </div>
+</ion-footer>

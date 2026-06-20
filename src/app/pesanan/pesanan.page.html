@@ -1,0 +1,119 @@
+<ion-content class="payment-page">
+
+  <div class="checkout-header">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <h1>Ticket Checkout</h1>
+    <ion-icon name="ellipsis-vertical"></ion-icon>
+  </div>
+
+  <div class="stepper">
+    <div class="step completed">
+      <div class="circle">
+        <ion-icon name="checkmark"></ion-icon>
+      </div>
+      <span>Details</span>
+    </div>
+
+    <div class="line active"></div>
+
+    <div class="step current">
+      <div class="circle"></div>
+      <span>Payment</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="step">
+      <div class="circle"></div>
+      <span>Ticket</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">
+    Order Summary
+  </h2>
+
+  <div class="summary-card" style="background: #ffffff; border-radius: 16px; padding: 16px; margin: 12px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+    <div class="event-info" style="display: flex; gap: 12px; margin-bottom: 12px;">
+      <img src="assets/event.jpg" alt="Event Poster" style="width: 70px; height: 70px; border-radius: 12px; object-fit: cover;">
+      <div>
+        <div class="badge" style="background: #e8f0fe; color: #3880ff; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 6px; display: inline-block; margin-bottom: 4px;">
+          LIVE EVENT
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: bold; color: #111;">{{ eventName }}</h3>
+        <p style="margin: 4px 0 0 0; font-size: 12px; color: #666;">📅 {{ eventDate }}</p>
+      </div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #f2f2f2; margin: 12px 0;">
+
+    <div class="price-row" style="display: flex !important; justify-content: space-between !important; align-items: center; width: 100%; margin-bottom: 8px;">
+      <span>Ticket Price</span>
+      <span style="font-weight: 600; color: #333;">{{ ticketPrice | currency:'IDR':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <div class="price-row" style="display: flex !important; justify-content: space-between !important; align-items: center; width: 100%; margin-bottom: 8px;">
+      <span>Service Fee</span>
+      <span style="font-weight: 600; color: #333;">{{ serviceFee | currency:'IDR':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <div class="price-row discount" style="display: flex !important; justify-content: space-between !important; align-items: center; width: 100%; margin-bottom: 8px;">
+      <span>Discount</span>
+      <span style="font-weight: bold; color: #eb445a;">-{{ discount | currency:'IDR':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+    <div class="price-row" style="display: flex !important; justify-content: space-between !important; align-items: center; width: 100%; font-weight: bold; color: #3880ff; font-size: 16px;">
+      <span>Total Payment</span>
+      <span>{{ totalPayment | currency:'IDR':'symbol':'1.0-0' }}</span>
+    </div>
+
+  </div>
+
+  <div class="summary-card" style="margin-top: -10px; margin-bottom: 20px; padding: 12px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <p style="margin: 0 0 8px 0; font-weight: bold; font-size: 14px; color: #333;">Gunakan Kode Voucher</p>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <ion-input [(ngModel)]="voucherCode" placeholder="Contoh: PROMO10K" style="border: 1px solid #ddd; border-radius: 8px; padding-left: 8px; --padding-start: 8px; font-size: 14px; background: #f9f9f9; height: 36px;"></ion-input>
+      <ion-button (click)="applyVoucher()" fill="solid" size="small" style="--border-radius: 8px; font-weight: bold; height: 36px; margin: 0;">Klaim</ion-button>
+    </div>
+    <p *ngIf="isVoucherApplied" style="color: #2dd36f; font-size: 12px; margin: 6px 0 0 0; font-weight: 500;">Voucher berhasil dipasang!</p>
+    <p *ngIf="voucherErrorMessage" style="color: #eb445a; font-size: 12px; margin: 6px 0 0 0; font-weight: 500;">{{ voucherErrorMessage }}</p>
+  </div>
+
+  <div class="payment-header" style="display: flex; justify-content: space-between; align-items: center; margin: 20px 4px 10px 4px;">
+    <h2>Payment Method</h2>
+    <span style="color: #3880ff;">Change</span>
+  </div>
+
+  <div class="payment-card" style="background: #ffffff; border: 1px solid #3880ff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 12px rgba(56, 128, 255, 0.05);">
+    <div class="payment-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <div class="payment-left" style="display: flex; gap: 12px; align-items: center;">
+        <div class="icon-box" style="background: #f0f5ff; padding: 8px; border-radius: 8px; color: #3880ff; display: flex; align-items: center;">
+          <ion-icon name="qr-code" style="font-size: 20px;"></ion-icon>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 14px; font-weight: bold; color: #111;">QRIS Payment</h3>
+          <p style="margin: 2px 0 0 0; font-size: 11px; color: #666;">Instant Confirmation</p>
+        </div>
+      </div>
+      <ion-radio checked="true"></ion-radio>
+    </div>
+
+    <div class="qr-container" (click)="simulateScanOrPay()" style="cursor: pointer; text-align: center; background: #fafafa; padding: 16px; border-radius: 12px;">
+      <h4 style="margin: 0 0 12px 0; font-size: 13px; font-weight: bold; color: #666; letter-spacing: 1px;">SCAN TO PAY</h4>
+      <img
+        src="assets/qr.png"
+        alt="QR Code Demo"
+        style="transition: transform 0.2s; display: inline-block; width: 180px; height: 180px;"
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'"
+      >
+      <div style="color: #3880ff; font-size: 11px; font-weight: bold; margin-top: 12px; letter-spacing: 0.5px;">
+        [ KLIK QR UNTUK SIMULASI BERHASIL ]
+      </div>
+    </div>
+  </div>
+
+</ion-content>

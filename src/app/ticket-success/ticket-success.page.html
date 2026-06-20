@@ -1,0 +1,88 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="selesai()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center header-title">Digital Ticket</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ticket-bg">
+  <div class="ticket-wrapper" *ngIf="latestTicket">
+    
+    <div class="success-header">
+      <div class="success-icon-box">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </div>
+      <h3>Payment Successful</h3>
+      <p>Your ticket is ready for the show!</p>
+    </div>
+
+    <div class="main-ticket-card">
+      <div class="ticket-banner">
+        <span class="category-badge">{{ latestTicket.category }}</span>
+        <h2>{{ latestTicket.name }}</h2>
+        <p class="date"><ion-icon name="calendar-outline"></ion-icon> Saturday, August 24 • 7:00 PM</p>
+      </div>
+
+      <div class="notch-container">
+        <div class="notch left"></div>
+        <div class="dashed-line"></div>
+        <div class="notch right"></div>
+      </div>
+
+      <div class="ticket-body">
+        <div class="info-grid">
+          <div class="info-block">
+            <span class="meta-label">TICKET HOLDER</span>
+            <p class="meta-value">{{ latestTicket.holder }}</p>
+          </div>
+          <div class="info-block">
+            <span class="meta-label">SECTION</span>
+            <p class="meta-value">{{ latestTicket.section }}</p>
+          </div>
+        </div>
+
+        <div class="info-grid style-gap">
+          <div class="info-block">
+            <span class="meta-label">SEAT</span>
+            <p class="meta-value">{{ latestTicket.seat }}</p>
+          </div>
+        </div>
+
+        <div class="ticket-divider-dot"></div>
+
+        <div class="entry-qr-section">
+          <div class="qr-display-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=VALIDATION-KEY-CONCERT" alt="Gate Pass QR" />
+          </div>
+          <span class="scan-tag">SCAN FOR ENTRY</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons-group">
+      <ion-button expand="block" class="download-btn">
+        <ion-icon slot="start" name="download-outline"></ion-icon>
+        Download Ticket
+      </ion-button>
+      
+      <ion-button expand="block" fill="outline" class="calendar-btn">
+        <ion-icon slot="start" name="calendar-outline"></ion-icon>
+        Add to Calendar
+      </ion-button>
+    </div>
+
+    <p class="bottom-disclaimer">
+      Show this digital ticket or the QR code at the entrance. Screenshots are valid for entry.
+    </p>
+
+  </div>
+</ion-content>

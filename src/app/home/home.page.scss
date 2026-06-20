@@ -1,27 +1,350 @@
-#container {
-  text-align: center;
+// Variabel Warna Figma
+$bg-light-blue: #D2E6F9;
+$primary-blue: #4A69B9;
+$text-dark: #222222;
+$text-muted: #666666;
+$white: #ffffff;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.light-bg {
+  --background: #{$bg-light-blue};
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.main-container {
+  padding: 16px;
+  max-width: 1200px; // Menjaga layout web tidak terlalu melebar ke samping
+  margin: 0 auto;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+// Custom Header & Toolbar
+.custom-toolbar {
+  --background: #{$white};
+  --color: #{$primary-blue};
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 
-  color: #8c8c8c;
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-  margin: 0;
+    .logo-img {
+      height: 28px;
+    }
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  ion-icon {
+    font-size: 1.5rem;
+    color: #{$primary-blue};
+  }
 }
 
-#container a {
-  text-decoration: none;
+// Search Bar
+.search-section {
+  margin-bottom: 16px;
+  .custom-searchbar {
+    --border-radius: 25px;
+    --background: #{$white};
+    --box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 0;
+  }
+}
+
+// Bulatan Kategori (Horizontal Scroll ke Tengah)
+.category-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 8px 4px;
+  margin-bottom: 20px;
+  scrollbar-width: none; // Hilangkan scrollbar di Firefox
+  justify-content: center; // Memaksa item kategori duduk di tengah layar
+
+  &::-webkit-scrollbar {
+    display: none; // Hilangkan scrollbar di Chrome/Safari
+  }
+
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+    text-align: center;
+
+    .blue-circle {
+      width: 50px;
+      height: 50px;
+      background: #5D93C4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+      ion-icon {
+        color: $white;
+        font-size: 1.4rem;
+      }
+    }
+
+    ion-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #3B5575;
+      white-space: nowrap;
+    }
+  }
+}
+
+// Hero Banner
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+
+  .badge-populer {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #E63946;
+    color: $white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+  }
+
+  .hero-info {
+    color: $white;
+    h2 {
+      margin: 0 0 4px 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Section Titles
+.section-title h3 {
+  font-weight: 700;
+  color: $text-dark;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 12px 0;
+
+  .title-left {
+    font-weight: 700;
+    color: #2F4858;
+    font-size: 1.05rem;
+  }
+  .title-right {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4A69B9;
+    cursor: pointer;
+  }
+}
+
+// RE-DESIGN: Perapian Tombol Filter Kustom (Sorotan, Populer, dll)
+.filter-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 20px;
+  justify-content: center; // Posisi grup tombol berada di tengah halaman
+  gap: 10px;
+  margin-bottom: 16px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-chip {
+    display: inline-flex;
+    align-items: center;      // KUNCI UTAMA: Ikon dan text lurus sejajar di tengah
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 16px;
+    background: #{$white};
+    color: #555555;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    -webkit-tap-highlight-color: transparent; // Hilangkan highlight saat tap di mobile
+
+    ion-icon {
+      font-size: 0.95rem;
+      margin-right: 6px;      // Jarak horizontal proporsional antara icon dan tulisan
+      margin-top: 0;   
+      transition: color 0.2s ease-in-out;       // Reset margin default bawaan agar tidak melorot
+    }
+
+    &:hover {
+      background: #e6f0fa;
+      color: #2F69BA;
+      border-color: #5294C9;
+
+      ion-icon {
+        color: #2F69BA;
+      }
+    }
+
+    &.active {
+      background: #5294C9 !important;
+      color: #{$white} !important;
+      border-color: #5294C9 !important;
+      box-shadow: 0 4px 12px rgba(82, 148, 201, 0.35);
+
+      ion-icon {
+        color: #{$white} !important;
+      }
+
+      &hover {
+        background: #4684b8 !important;
+        color: #{$white} !important;
+
+        ion-color {
+          color: #{$white} !important;
+        }
+      }
+    }
+  }
+}
+
+// Event Cards & Grid
+.event-grid {
+  padding: 0;
+}
+
+.event-card {
+  margin: 0 0 16px 0;
+  border-radius: 12px;
+  background: $white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+
+  .card-img-container {
+    position: relative;
+    height: 140px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .favorite-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.8);
+      padding: 6px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      color: #666;
+
+      &.liked {
+        color: #E63946;
+      }
+    }
+  }
+
+  ion-card-content {
+    padding: 12px;
+
+    h4 {
+      margin: 0 0 6px 0;
+      font-weight: 700;
+      color: $text-dark;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .event-date {
+      margin: 0 0 12px 0;
+      font-size: 0.75rem;
+      color: $text-muted;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .price-container {
+        display: flex;
+        flex-direction: column;
+
+        .label-price {
+          font-size: 0.7rem;
+          color: $text-muted;
+        }
+        .price-value {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: #2F69BA;
+        }
+      }
+
+      .btn-beli {
+        --background: #5294C9;
+        --border-radius: 15px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        height: 28px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Custom Bottom Tab Bar (Tetap kokoh di dasar halaman)
+.custom-tabbar {
+  --background: #{$white};
+  border-top: 1px solid rgba(0,0,0,0.05);
+  height: 56px;
+  position: relative;
+  
+  ion-tab-button {
+    --color: #8E8E93;
+    --color-selected: #2F69BA;
+    
+    ion-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+  }
 }

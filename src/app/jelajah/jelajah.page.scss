@@ -1,0 +1,229 @@
+// GLOBAL STYLING UNTUK KONSISTENSI (SESUAI HOME PAGE)
+.custom-toolbar {
+  --background: #ffffff; // Background header putih
+  --border-color: transparent;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .logo-img {
+      height: 32px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-family: 'Poppins', sans-serif; // Asumsi menggunakan Poppins
+      font-weight: 700;
+      color: #3A4FB1; // Warna teks ungu kebiruan Anda
+      font-size: 1.2rem;
+    }
+  }
+
+  .navbar-icon {
+    color: #1D5FB7; // Warna biru ikon Anda
+    font-size: 1.6rem;
+  }
+}
+
+// STYLING KHUSUS JELAJAH PAGE
+.light-bg {
+  --background: #D2E6F9; // Warna background biru muda sesuai Figma
+}
+
+// Bagian Search Bar
+.search-section {
+  padding: 16px;
+  padding-bottom: 8px;
+
+  .custom-searchbar {
+    --background: #ffffff; // Search bar putih
+    --border-radius: 50px; // Sangat melengkung sesuai Figma
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --color: #333;
+    --placeholder-color: #888;
+    --icon-color: #1D5FB7; // Ikon cari warna biru
+    padding: 0;
+  }
+}
+
+// Bagian Tombol Filter Kategori (Chips)
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 16px 16px 16px;
+
+  .filter-chip {
+    --background: #ffffff; // Chip non-aktif putih
+    --color: #555; // Teks abu-abu
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    --border-radius: 20px;
+    margin: 0;
+    padding: 10px 20px;
+    height: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &.active {
+      --background: #ffffff; // Chip aktif tetap putih
+      --color: #1D5FB7; // Teks biru
+      border: 2px solid #1D5FB7; // Outline biru
+    }
+  }
+}
+
+// Container Daftar Event
+.event-list-container {
+  padding: 0 16px 100px 16px; // Padding bawah ekstra untuk tab bar
+}
+
+// Styling Kartu Event Vertikal (Figma)
+.event-card-vertical {
+  background: #ffffff;
+  border-radius: 16px; // Corner radius melengkung
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; // Memotong gambar agar mengikuti radius kartu
+  margin-left: 0;
+  margin-right: 0;
+
+  // Container Gambar & Tombol Favorit
+  .image-container {
+    position: relative;
+    height: 180px; // Tinggi area gambar
+    background-color: #eaeaea; // Placeholder warna jika gambar loading
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Gambar memenuhi area
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      --color: #F8B4D9; // Warna hati merah muda/biru muda di Figma
+      background: rgba(255, 255, 255, 0.7); // Background tombol transparan
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .heart-icon {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  // Konten Kartu (Teks & Tombol)
+  ion-card-content {
+    padding: 16px;
+
+    .event-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #111;
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .date-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+
+      ion-icon {
+        color: #1D5FB7; // Warna ikon kalender
+      }
+    }
+
+    // Footer Kartu (Harga & Tombol Beli)
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; // Align bottom
+
+      .price-container {
+        display: flex;
+        flex-direction: column;
+
+        .price-label {
+          font-size: 0.75rem;
+          color: #888;
+          margin-bottom: 2px;
+        }
+
+        .price-value {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          color: #1D5FB7; // Warna harga biru
+          font-size: 1.1rem;
+        }
+      }
+
+      .buy-btn {
+        --background: #5094CE; // Warna tombol beli biru sesuai Figma
+        --color: #ffffff;
+        --border-radius: 10px; // Radius tombol melengkung
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin: 0;
+        text-transform: none; // Matikan uppercase
+        height: 36px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// TAB BAR STYLING (SESUAI FIGMA)
+.custom-tabbar {
+  --background: #ffffff; // Tab bar putih
+  --border-color: transparent;
+  border-top-left-radius: 20px; // Radius atas tab bar sesuai Figma
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08); // Shadow atas
+  height: 70px; // Sedikit lebih tinggi
+  padding-bottom: 10px;
+
+  ion-tab-button {
+    --color: #8E8E93; // Warna tab non-aktif abu-abu
+    --color-selected: #1D3557; // Warna tab aktif biru gelap sesuai Figma
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+
+    &::after {
+      display: none; // Hapus indikator default
+    }
+
+    ion-icon {
+      font-size: 1.5rem;
+      margin-bottom: 2px;
+    }
+
+    ion-label {
+      font-size: 0.75rem;
+    }
+  }
+
+  // Kelas untuk tab yang sedang aktif (Jelajah)
+  .tab-selected {
+    --color: #1D3557; // Biru gelap untuk teks/ikon aktif
+  }
+}

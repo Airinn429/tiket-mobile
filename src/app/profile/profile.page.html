@@ -1,0 +1,116 @@
+<ion-header class="header">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      T!CKET
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+  <div class="profile">
+    <img src="assets/profile.png" class="avatar">
+
+    <h2>Tahara Abizar</h2>
+    <p>taharaabizar@gmail.com</p>
+  </div>
+
+
+  <div class="activity">
+
+    <h3>Aktivitas</h3>
+
+    <h4>Mei 2026</h4>
+
+    <div class="card">
+
+      <div class="top">
+        <img src="assets/profile.png" class="mini-avatar">
+
+        <span class="name">Alexander</span>
+
+        <span class="status">
+          hadir ke
+        </span>
+
+        <span class="date">
+          15 Des
+        </span>
+
+      </div>
+
+
+      <div class="event">
+
+        <img src="assets/event.jpg" class="event-image">
+
+        <div>
+          <h5>
+            Under Water Fest '26
+          </h5>
+
+          <p>
+            <ion-icon name="location-outline"></ion-icon>
+            Indonesia
+          </p>
+
+          <p>
+            Dari IDR 150K
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button routerLink="/home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Beranda</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button routerLink="/jelajah">
+      <ion-icon name="compass-outline"></ion-icon>
+      <ion-label>Jelajah</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button routerLink="/pesanan">
+      <ion-icon name="ticket-outline"></ion-icon>
+      <ion-label>Pesanan</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button class="active">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-footer>

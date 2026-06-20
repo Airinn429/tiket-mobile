@@ -1,0 +1,81 @@
+ion-content {
+  --background: #eef5f7;
+}
+
+ion-toolbar {
+  --background: #eef5f7;
+}
+
+ion-title {
+  color: #3a32d9;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-icon {
+  color: #4670c6;
+}
+
+.profile {
+  text-align: center;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid #4d9de0;
+}
+
+.profile h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.profile p {
+  color: gray;
+}
+
+.activity h3 {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.activity h4 {
+  color: #4369a8;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 15px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mini-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.event {
+  display: flex;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.event-image {
+  width: 110px;
+  border-radius: 10px;
+}
+
+ion-footer {
+  --background: white;
+}
